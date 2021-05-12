@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.TextView
 import com.example.myapplication.R
 //salam
+//wa3alaykom salammm hhhh
 class MainActivity : AppCompatActivity() {
     fun openActivity2(){
         val intent:Intent=Intent(this,MainActivity2::class.java)
