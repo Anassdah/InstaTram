@@ -11,7 +11,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import com.example.myapplication.R
-
+//salam
 class MainActivity : AppCompatActivity() {
     fun openActivity2(){
         val intent:Intent=Intent(this,MainActivity2::class.java)
