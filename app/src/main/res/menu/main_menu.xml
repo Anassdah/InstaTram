@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/Home"
+            android:id="@+id/menu_home"/>
+    <item android:title="@string/Map"
+        android:id="@+id/menu_map"/>
+    <item android:title="@string/Setting"
+        android:id="@+id/menu_setting" >
+        <menu>
+            <item
+                android:title="@string/Language"
+                android:id="@+id/setting_language"/>
+            <item android:title="@string/Theme"
+                android:id="@+id/setting_theme"/>
+        </menu>
+    </item>
+
+</menu>

@@ -22,7 +22,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".PictureListActivity"></activity>
+        <activity android:name=".ThemeActivity"></activity>
+        <activity android:name=".LanguageActivity" />
+        <activity android:name=".PictureListActivity" />
         <activity android:name=".HActivity" />
         <activity android:name=".MapActivity" />
 
