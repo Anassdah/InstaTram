@@ -13,6 +13,7 @@ import android.provider.MediaStore
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_picture_list.*
 const val REQUEST_IMAGE_CAPTURE = 1
 class PictureListActivity : AppCompatActivity() {
@@ -70,8 +71,9 @@ class PictureListActivity : AppCompatActivity() {
         //called when image was captured
         if(resultCode== Activity.RESULT_OK){
             //set image captured to image image view
-            val image_view=findViewById<ImageView>(R.id.click_image)
-            image_view.setImageURI(image_uri)
+            click_image.setImageURI(image_uri)
+            Picasso.get().load(image_uri).resize(300, 400).centerCrop().into(click_image)
+
         }
     }
 
