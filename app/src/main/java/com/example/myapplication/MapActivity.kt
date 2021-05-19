@@ -16,6 +16,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 class MapActivity : FragmentActivity (), OnMapReadyCallback {
     val map:GoogleMap? = null
+    val classha = HActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
