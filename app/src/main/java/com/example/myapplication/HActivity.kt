@@ -63,9 +63,11 @@ class HActivity : AppCompatActivity() {
             }
 
         })
-        //listView.setOnClickListener(AdapterView.OnItemClickListener { parent, view, position, id ->
-        //}
-        //})
+        listView.setOnItemClickListener { parent, view, position, id ->
+            val element = adapter?.getItemId(position) // The item that was clicked
+            val intent = Intent(this, PictureListActivity::class.java)
+            startActivity(intent)
+        }
         /*layoutManager= LinearLayoutManager(this)
 
         recyclerView.layoutManager=layoutManager
