@@ -90,7 +90,8 @@ class MapActivity : FragmentActivity (), OnMapReadyCallback, GoogleMap.OnMarkerC
 
         val azzzzz:LatLng = LatLng(41.3602701633887, 2.06231782329774);
         a = p0?.addMarker( MarkerOptions().position(azzzzz).title("Fontsanta i Fatjó"))
-        p0?.moveCamera(CameraUpdateFactory.newLatLng(azzzzz))
+        val zoomLevel:Float = 11.0f
+        p0?.moveCamera(CameraUpdateFactory.newLatLngZoom(azzzzz, zoomLevel));
         a.tag = 0
         val azzzzzz:LatLng = LatLng(41.3646427714853, 2.05883027285289);
         a = p0?.addMarker( MarkerOptions().position(azzzzzz).title("Bon Viatge"))
