@@ -18,7 +18,7 @@ class MainActivity2 : TabActivity() {
 
         val tabHost = findViewById<TabHost>(android.R.id.tabhost)
         if (tabHost != null) {
-            addTab(tabHost, getString(R.string.Home), getString(R.string.Home), HomeActivity::class.java)
+            addTab(tabHost, getString(R.string.Home), getString(R.string.Home), HActivity::class.java)
             addTab(tabHost, getString(R.string.Map), getString(R.string.Map), MapActivity::class.java)
             tabHost.currentTab = 1
             tabHost.setOnTabChangedListener { tabId -> Toast.makeText(applicationContext, tabId, Toast.LENGTH_SHORT).show() }

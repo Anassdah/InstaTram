@@ -1,6 +1,6 @@
 package com.example.myapplication.data
 
-class Tram (
+data class Tram (
     var id:String,
     var line:String,
     var name:String,

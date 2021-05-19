@@ -7,8 +7,16 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.ui.main.HomeViewModel
 import com.example.myapplication.ui.main.MainFragment
+import kotlinx.android.synthetic.main.home_activity.*
+import kotlinx.android.synthetic.main.main_fragment.*
+
 class HomeActivity : AppCompatActivity() {
+    public val tramNames = mutableListOf<String>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +26,8 @@ class HomeActivity : AppCompatActivity() {
                 .replace(R.id.container, MainFragment.newInstance())
                 .commitNow()
         }
+
+
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inf : MenuInflater = menuInflater

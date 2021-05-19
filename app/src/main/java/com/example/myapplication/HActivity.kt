@@ -1,10 +1,15 @@
 package com.example.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
+import android.widget.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -14,50 +19,58 @@ import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_h.*
 import org.json.JSONArray
 import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
+import java.util.*
 
 @Suppress("UNREACHABLE_CODE")
 class HActivity : AppCompatActivity() {
-    private var mTextViewResult : TextView?=null
-    private var mQueue: RequestQueue?=null
+    var tram = arrayOfNulls<String>(56)
+
+    var layoutManager: RecyclerView.LayoutManager?=null
+    var adapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>?=null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_h)
 
-        mTextViewResult = findViewById(R.id.text_view_result)
-        val buttonParse :Button=findViewById(R.id.button_parse)
+        val rf = Retrofit.Builder()
+            .baseUrl(StationInter.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create()).build()
 
-        mQueue = Volley.newRequestQueue(this )
+        var API = rf.create(StationInter::class.java)
+        var call=API.trams
 
-        buttonParse.setOnClickListener(View.OnClickListener { jsonparse() })
+        call?.enqueue(object:Callback<List<Stations?>?>{
+            override fun onResponse(
+                call: Call<List<Stations?>?>,
+                response: retrofit2.Response<List<Stations?>?>
+            ) {
+                var tramlist:List<Stations>?=response.body() as List<Stations>
 
+                for (i in tramlist!!.indices){
+                    tram[i]= tramlist!![i]!!.name
+                }
+                var adapter=ArrayAdapter<String>(applicationContext,android.R.layout.simple_dropdown_item_1line,tram)
+                listView.adapter=adapter
+            }
 
-    }
-
-    private fun jsonparse() {
-        val url : String="https://mocki.io/v1/5a999e8f-8540-47f5-afaa-0ade23c12930"
-        val request : JsonObjectRequest= JsonObjectRequest(Request.Method.GET,url,null,Response.Listener<JSONObject>(){
-         fun onResponse(response: JSONObject) {
-             mTextViewResult?.append("name")
-             val trarr :JSONArray=response.getJSONArray("tram")
-             for (i in 0..trarr.length()){
-                 val trams: JSONObject=trarr.getJSONObject(i)
-                 var id:String=trams.getString("id")
-                 var line:String=trams.getString("line")
-                 var name:String=trams.getString("name")
-                 var type:String=trams.getString("type")
-                 var zone:String=trams.getString("zone")
-                 var connections:String=trams.getString("connections")
-                 var lat:String=trams.getString("lat")
-                 var lon:String=trams.getString("lon")
-                 mTextViewResult?.append(name)
-             }
-
-
-         }
-        }, Response.ErrorListener { 
+            override fun onFailure(call: Call<List<Stations?>?>, t: Throwable) {
+            }
 
         })
-        mQueue?.add(request)
+        //listView.setOnClickListener(AdapterView.OnItemClickListener { parent, view, position, id ->
+        //}
+        //})
+        /*layoutManager= LinearLayoutManager(this)
+
+        recyclerView.layoutManager=layoutManager
+
+        adapter = RecyclerAdapter()
+        recyclerView.adapter=adapter*/
     }
 }
