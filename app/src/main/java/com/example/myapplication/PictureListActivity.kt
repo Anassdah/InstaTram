@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.core.content.FileProvider
 import kotlinx.android.synthetic.main.activity_picture_list.*
@@ -151,6 +154,35 @@ class PictureListActivity : AppCompatActivity() {
         bOptions.inSampleSize = scaleFactor
         bOptions.inJustDecodeBounds = false
         return BitmapFactory.decodeFile(imageFilePath, bOptions)
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id : Int = item.itemId
+        if (id==R.id.menu_home){
+            Toast.makeText(this,"Home", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this,HActivity::class.java)
+            startActivity(intent)
+        }
+        if (id==R.id.menu_map){
+            Toast.makeText(this,"Map", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this,MapActivity::class.java)
+            startActivity(intent)
+        }
+        if (id==R.id.setting_language){
+            Toast.makeText(this,"Language", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this,LanguageActivity::class.java)
+            startActivity(intent)
+        }
+        if (id==R.id.setting_theme){
+            Toast.makeText(this,"Theme", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this,ThemeActivity::class.java)
+            startActivity(intent)
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
 

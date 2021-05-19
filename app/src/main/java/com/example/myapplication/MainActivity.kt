@@ -27,27 +27,34 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener(View.OnClickListener { openActivity2() })
         val text : String="  WELCOME \n         TO \n BARCELONA"
         val ss : SpannableString = SpannableString(text)
-        val rd : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#EA2C2C"))
-        val rd1 : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#EA2C2C"))
-        val rd2 : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#EA2C2C"))
-        val rd3 : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#EA2C2C"))
-        val rd4 : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#EA2C2C"))
-        val yl1 : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#0A15E4"))
-        val yl2 : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#0A15E4"))
-        val yl3 : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#0A15E4"))
-        val yl : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#0A15E4"))
-        val bl : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#EA2C2C"))
+        val rdB : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#008B8B"))
+        //A
+        val ylA : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#100680"))
+        val rd1R : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#008B8B"))
+        val yl1C : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#900B0B"))
+        val rd2E : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#008B8B"))
+        val yl2 : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#900B0B"))
+        val rd3 : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#008B8B"))
+        val yl3 : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#100680"))
+        val rd4 : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#008B8B"))
 
-        ss.setSpan(rd,24,26, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
-        ss.setSpan(yl,26,27, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
-        ss.setSpan(rd1,27,28, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
-        ss.setSpan(yl1,28,29, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
-        ss.setSpan(rd2,29,30, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+
+        //welcome
+        val bl : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#900B0B"))
+        //to
+        val to : ForegroundColorSpan= ForegroundColorSpan(Color.parseColor("#008B8B"))
+
+        ss.setSpan(rdB,24,26, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+        ss.setSpan(ylA,26,27, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+        ss.setSpan(rd1R,27,28, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+        ss.setSpan(yl1C,28,29, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+        ss.setSpan(rd2E,29,30, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
         ss.setSpan(yl2,30,31, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
         ss.setSpan(rd3,31,32, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
         ss.setSpan(yl3,32,33, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
         ss.setSpan(rd4,33,34, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
-        ss.setSpan(bl,0,24, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+        ss.setSpan(bl,0,20, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+        ss.setSpan(to,20,24, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
 
 
 
