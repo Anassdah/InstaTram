@@ -54,9 +54,10 @@ class HActivity : AppCompatActivity() {
 
                 for (i in tramlist!!.indices){
                     tram[i]= tramlist!![i]!!.name
+
                 }
-                var adapter=ArrayAdapter<String>(applicationContext,android.R.layout.simple_dropdown_item_1line,tram)
-                listView.adapter=adapter
+                var tadapter=ArrayAdapter<String>(applicationContext,android.R.layout.simple_dropdown_item_1line,tram)
+                listView.adapter=tadapter
             }
 
             override fun onFailure(call: Call<List<Stations?>?>, t: Throwable) {
@@ -68,11 +69,6 @@ class HActivity : AppCompatActivity() {
             val intent = Intent(this, PictureListActivity::class.java)
             startActivity(intent)
         }
-        /*layoutManager= LinearLayoutManager(this)
 
-        recyclerView.layoutManager=layoutManager
-
-        adapter = RecyclerAdapter()
-        recyclerView.adapter=adapter*/
     }
 }

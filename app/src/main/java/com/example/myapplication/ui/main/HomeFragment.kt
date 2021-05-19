@@ -13,9 +13,6 @@ import com.example.myapplication.R
 
 class MainFragment : Fragment() {
 
-   /* var layoutManager: RecyclerView.LayoutManager?=null
-    var adapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>?=null*/
-
 
     companion object {
         fun newInstance() = MainFragment()
@@ -28,12 +25,7 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        /*layoutManager=LinearLayoutManager(this)
 
-        recyclerView.layoutManager=layoutManager
-
-        adapter = RecyclerAdapter()
-        recyclerView.adapter=adapter*/
         val view = inflater.inflate(R.layout.main_fragment, container, false)
         recyclerView = view.findViewById(R.id.recyclerView)
 
