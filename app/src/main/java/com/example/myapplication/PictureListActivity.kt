@@ -99,7 +99,7 @@ class PictureListActivity : AppCompatActivity() {
         if (resultCode == Activity.RESULT_OK) {
             //to get the path
             path=imageFilePath.toString()
-            Toast.makeText(this, "Image successfully created", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Image created successfully", Toast.LENGTH_SHORT).show()
             //path=imageFilePath.toString()
             click_image.setImageBitmap(setScaledBitmap())
 

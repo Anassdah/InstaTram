@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.os.Environment
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import com.squareup.picasso.Picasso
@@ -21,6 +22,7 @@ class FullScreenImageActivity : AppCompatActivity() {
         val height=intent.getStringExtra(Extraheight)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_full_screen_image)
+        Toast.makeText(this, "Displaying last taken image in full screen ", Toast.LENGTH_SHORT).show()
 
         val bitmap = BitmapFactory.decodeFile(path?.toUri().toString())
         //fullScreenImageView.setImageURI(path?.toUri())
