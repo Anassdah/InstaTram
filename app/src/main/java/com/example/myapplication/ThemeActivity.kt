@@ -23,7 +23,7 @@ class ThemeActivity : AppCompatActivity() {
         val id : Int = item.itemId
         if (id==R.id.menu_home){
             Toast.makeText(this,"Home", Toast.LENGTH_SHORT).show()
-            val intent: Intent = Intent(this,HomeActivity::class.java)
+            val intent: Intent = Intent(this,HActivity::class.java)
             startActivity(intent)
         }
         if (id==R.id.menu_map){

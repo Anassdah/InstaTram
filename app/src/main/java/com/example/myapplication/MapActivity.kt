@@ -88,10 +88,10 @@ class MapActivity : FragmentActivity (), OnMapReadyCallback, GoogleMap.OnMarkerC
     }
     override fun onMapReady(p0: GoogleMap) {
 
-        val azzzzz:LatLng = LatLng(41.3602701633887, 2.06231782329774);
-        a = p0?.addMarker( MarkerOptions().position(azzzzz).title("Fontsanta i Fatjó"))
+        val aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:LatLng = LatLng(41.3921819382415, 2.1429899578455);
+        a = p0?.addMarker( MarkerOptions().position(aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa).title("Francesc Macià"))
         val zoomLevel:Float = 11.0f
-        p0?.moveCamera(CameraUpdateFactory.newLatLngZoom(azzzzz, zoomLevel));
+        p0?.moveCamera(CameraUpdateFactory.newLatLngZoom(aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, zoomLevel));
         a.tag = 0
         val azzzzzz:LatLng = LatLng(41.3646427714853, 2.05883027285289);
         a = p0?.addMarker( MarkerOptions().position(azzzzzz).title("Bon Viatge"))
@@ -197,9 +197,9 @@ class MapActivity : FragmentActivity (), OnMapReadyCallback, GoogleMap.OnMarkerC
         a = p0?.addMarker( MarkerOptions().position(aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa).title("L'Illa"))
         p0?.moveCamera(CameraUpdateFactory.newLatLng(aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa))
         a.tag = 0
-        val aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:LatLng = LatLng(41.3921819382415, 2.1429899578455);
-        a = p0?.addMarker( MarkerOptions().position(aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa).title("Francesc Macià"))
-        p0?.moveCamera(CameraUpdateFactory.newLatLng(aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa))
+        val azzzzz:LatLng = LatLng(41.3602701633887, 2.06231782329774);
+        a = p0?.addMarker( MarkerOptions().position(azzzzz).title("Fontsanta i Fatjó"))
+        p0?.moveCamera(CameraUpdateFactory.newLatLng(azzzzz))
         a.tag = 0
         val aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:LatLng = LatLng(41.3939821425228, 2.18687783955788);
         a = p0?.addMarker( MarkerOptions().position(aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa).title("Marina"))
