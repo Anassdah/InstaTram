@@ -14,6 +14,7 @@ import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.core.content.FileProvider
 import kotlinx.android.synthetic.main.activity_picture_list.*
@@ -23,10 +24,25 @@ import java.lang.Integer.min
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**var and const declarations*/
+//intent keys
+const val ExtraPath="com.example.myfirstapp.path"
+const val Extrawidth="com.example.myfirstapp.width"
+const val Extraheight="com.example.myfirstapp.height"
+//path declaration
+lateinit var path:String
+//for our image
+var width=0
+var height=0
+
+@Suppress("DEPRECATION")
 class PictureListActivity : AppCompatActivity() {
-    private val IMAGE_CAPTURE_CODE: Int = 1001
-    private val PERMISSION_CODE: Int = 1000
-    lateinit var imageFilePath: String
+    //for user permission and image capture
+    private val IMAGE_CAPTURE_CODE: Int=1001
+    private val PERMISSION_CODE: Int=1000
+    lateinit var imageFilePath:String
+    // var image_uri:Uri?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_picture_list)
@@ -81,8 +97,13 @@ class PictureListActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         //called when image was captured
         if (resultCode == Activity.RESULT_OK) {
-            Toast.makeText(this, "image created succesfully", Toast.LENGTH_SHORT).show()
+            //to get the path
+            path=imageFilePath.toString()
+            Toast.makeText(this, "Image successfully created", Toast.LENGTH_SHORT).show()
+            //path=imageFilePath.toString()
             click_image.setImageBitmap(setScaledBitmap())
+
+
 
 
             /* click_image.setImageURI(image_uri)
@@ -101,14 +122,14 @@ class PictureListActivity : AppCompatActivity() {
     @Throws(IOException::class)
     private fun createImageFile(): File {
         // Create an image file name
-        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-        val imageFileName = "JPEG_${timeStamp}_"
-        val storageDir: File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        if (!storageDir?.exists()!!) {
-            storageDir.mkdir()
-        }
-        val imageFile = File.createTempFile(imageFileName, ".jpg", storageDir)
-        imageFilePath = imageFile.absolutePath
+        val timeStamp: String = SimpleDateFormat("yyyy-MM-dd_HH:mm:ss").format(Date())
+        //val imageFileName = "InstaTram_${timeStamp}_"
+        val imageFileName="InstaTram"
+        //set the file path
+        val storageDir: File? = this.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        if(!storageDir?.exists()!!){storageDir.mkdir()}
+        val imageFile= createTempFile(imageFileName, ".jpg", storageDir)
+        imageFilePath=imageFile.absolutePath
         return imageFile
 
     }
@@ -139,21 +160,29 @@ class PictureListActivity : AppCompatActivity() {
         startActivityForResult(cameraIntent, IMAGE_CAPTURE_CODE)
 */
     }
+/**For image mesurement in capture*/
+    private fun setScaledBitmap():Bitmap{
+        width=click_image.width
+        height=click_image.height
 
-    fun setScaledBitmap(): Bitmap {
-        val imageViewWidth = click_image.width
-        val imageViewHeight = click_image.height
-
-        val bOptions = BitmapFactory.Options()
-        bOptions.inJustDecodeBounds = true
+        val bOptions=BitmapFactory.Options()
+        bOptions.inJustDecodeBounds=true
         BitmapFactory.decodeFile(imageFilePath, bOptions)
-        val bitmapWidth = bOptions.outWidth
-        val bitmapHeight = bOptions.outHeight
-        val scaleFactor =
-            kotlin.math.min(bitmapWidth / imageViewWidth, bitmapHeight / imageViewHeight)
-        bOptions.inSampleSize = scaleFactor
-        bOptions.inJustDecodeBounds = false
+        val bitmapWidth=bOptions.outWidth
+        val bitmapHeight=bOptions.outHeight
+        val scaleFactor= kotlin.math.min(bitmapWidth / width, bitmapHeight / height)
+        bOptions.inSampleSize=scaleFactor
+        bOptions.inJustDecodeBounds=false
         return BitmapFactory.decodeFile(imageFilePath, bOptions)
+    }
+
+    fun OnClickImage(view: View) {
+        val fullScreenIntent = Intent(this, FullScreenImageActivity::class.java).apply {
+            putExtra(ExtraPath, path.toString())
+            putExtra(Extraheight, height.toString())
+            putExtra(Extrawidth, width.toString())
+        }
+        startActivity(fullScreenIntent)
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
