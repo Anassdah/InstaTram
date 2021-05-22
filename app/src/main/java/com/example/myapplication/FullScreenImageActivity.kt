@@ -7,9 +7,7 @@ import android.os.Environment
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_full_screen_image.*
-import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import kotlin.math.min
 
