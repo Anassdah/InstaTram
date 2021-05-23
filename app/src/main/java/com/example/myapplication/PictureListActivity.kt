@@ -122,12 +122,12 @@ class PictureListActivity : AppCompatActivity() {
     private fun createImageFile(): File {
         // Create an image file name
         val timeStamp: String = SimpleDateFormat("yyyy-MM-dd_HH:mm:ss").format(Date())
-        //val imageFileName = "InstaTram_${timeStamp}_"
-        val imageFileName="InstaTram"
+        val imageFileName = "InstaTram_${timeStamp}_"
+        //val imageFileName="InstaTram"
         //set the file path
         val storageDir: File? = this.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         if(!storageDir?.exists()!!){storageDir.mkdir()}
-        val imageFile= createTempFile(imageFileName, ".jpg", storageDir)
+        val imageFile= createTempFile(imageFileName, "InstaTram.jpg", storageDir)
         imageFilePath=imageFile.absolutePath
         return imageFile
 
@@ -182,6 +182,14 @@ class PictureListActivity : AppCompatActivity() {
             putExtra(Extrawidth, width.toString())
         }
         startActivity(fullScreenIntent)
+    }
+    fun OnClickImageList(view: View){
+        val imageListIntent = Intent(this, StationImagesActivity::class.java).apply {
+
+        }
+        startActivity(imageListIntent)
+
+
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater

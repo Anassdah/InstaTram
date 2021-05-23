@@ -22,8 +22,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".FullScreenImageActivity"
+        <activity android:name=".FullImageActivity"></activity>
+        <activity android:name=".StationImagesActivity"
             android:parentActivityName=".PictureListActivity"/>
+        <activity
+            android:name=".FullScreenImageActivity"
+            android:parentActivityName=".PictureListActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -35,8 +39,9 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".PictureListActivity"
-            android:parentActivityName=".HActivity"/>
+        <activity
+            android:name=".PictureListActivity"
+            android:parentActivityName=".HActivity" />
         <activity android:name=".ThemeActivity" />
         <activity android:name=".LanguageActivity" />
         <activity android:name=".HActivity" />
