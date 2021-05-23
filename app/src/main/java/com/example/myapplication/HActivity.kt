@@ -14,7 +14,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
+const val ExtraStation="com.example.myapplication.Station"
 @Suppress("UNREACHABLE_CODE")
 class HActivity : AppCompatActivity() {
     var tram = arrayOfNulls<String>(56)
@@ -55,7 +55,9 @@ class HActivity : AppCompatActivity() {
         })
         listView.setOnItemClickListener { parent, view, position, id ->
             val element = adapter?.getItemId(position) // The item that was clicked
-            val intent = Intent(this, PictureListActivity::class.java)
+
+            val intent = Intent(this, PictureListActivity::class.java).apply {
+            }
             startActivity(intent)
         }
 

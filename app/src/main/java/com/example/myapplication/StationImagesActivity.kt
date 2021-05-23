@@ -62,7 +62,7 @@ class StationImagesActivity : AppCompatActivity(), OnitemClcikListerner {
             if (singleimage.isDirectory && !singleimage.isHidden) {
                 imageList.addAll(findImage(singleimage))
             } else {
-                if (singleimage.name.endsWith("Instatram.jpg")) {
+                if (singleimage.name.endsWith("InstaTram.jpg")) {
                     imageList.add(singleimage)
                 }
             }
