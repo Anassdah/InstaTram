@@ -40,11 +40,14 @@ class PictureListActivity : AppCompatActivity() {
     private val IMAGE_CAPTURE_CODE: Int=1001
     private val PERMISSION_CODE: Int=1000
     lateinit var imageFilePath:String
+    lateinit var stationId:String
     // var image_uri:Uri?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_picture_list)
+        val station= intent.getStringExtra(ExtraStation).toString()
+        stationId=station
         //button click
 
         camera_button.setOnClickListener {
@@ -127,7 +130,8 @@ class PictureListActivity : AppCompatActivity() {
         //set the file path
         val storageDir: File? = this.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         if(!storageDir?.exists()!!){storageDir.mkdir()}
-        val imageFile= createTempFile(imageFileName, "InstaTram.jpg", storageDir)
+        /**change suffix to change name khli .jpg*/
+        val imageFile= createTempFile(imageFileName, "InstaTram${stationId}.jpg", storageDir)
         imageFilePath=imageFile.absolutePath
         return imageFile
 

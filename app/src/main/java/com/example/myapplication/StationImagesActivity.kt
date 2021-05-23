@@ -19,9 +19,13 @@ class StationImagesActivity : AppCompatActivity(), OnitemClcikListerner {
     var customAdapter: CustomAdapter? = null
     var mList: MutableList<String>? = null
     var recyclerView: RecyclerView? = null
+    lateinit var stationId:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_station_images)
+        /**to retrieve id*/
+        val station= intent.getStringExtra(ExtraStation).toString()
+        stationId=station
         recyclerView = findViewById(R.id.recyclerViewId)
         CheckUserPermsions()
         mList = ArrayList()
@@ -48,13 +52,13 @@ class StationImagesActivity : AppCompatActivity(), OnitemClcikListerner {
                 display() // init the contact list
             } else {
                 // Permission Denied
-                Toast.makeText(this, "your message", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "baliz", Toast.LENGTH_SHORT)
                     .show()
             }
             else -> super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         }
     }
-
+/**For finding the image*/
     private fun findImage(file: File): ArrayList<File> {
         val imageList = ArrayList<File>()
         val imageFile = file.listFiles()
@@ -62,7 +66,8 @@ class StationImagesActivity : AppCompatActivity(), OnitemClcikListerner {
             if (singleimage.isDirectory && !singleimage.isHidden) {
                 imageList.addAll(findImage(singleimage))
             } else {
-                if (singleimage.name.endsWith("InstaTram.jpg")) {
+                /**change suffix to search for names ending with dikchi, khli .jpg*/
+                if (singleimage.name.endsWith("InstaTram${stationId}.jpg")) {
                     imageList.add(singleimage)
                 }
             }
