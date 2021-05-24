@@ -59,7 +59,7 @@ class HActivity : AppCompatActivity() {
 
             val intent = Intent(this, PictureListActivity::class.java).apply {
                 /**to get element*/
-                putExtra(ExtraStation,element.toString())
+                putExtra(ExtraStation,position.toString())
             }
             startActivity(intent)
         }

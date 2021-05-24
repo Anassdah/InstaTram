@@ -27,7 +27,7 @@ class StationImagesActivity : AppCompatActivity(), OnitemClcikListerner {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_station_images)
         /**to retrieve id*/
-        val station= intent.getStringExtra(ExtraStation).toString()
+        val station= intent.getStringExtra(ExtraStationFromPicture).toString()
         stationId=station
         recyclerView = findViewById(R.id.recyclerViewId)
         CheckUserPermsions()
@@ -106,22 +106,22 @@ class StationImagesActivity : AppCompatActivity(), OnitemClcikListerner {
         val id : Int = item.itemId
         if (id==R.id.menu_home){
             Toast.makeText(this,"Home",Toast.LENGTH_SHORT).show()
-            val intent:Intent=Intent(this,HActivity::class.java)
+            val intent=Intent(this,HActivity::class.java)
             startActivity(intent)
         }
         if (id==R.id.menu_map){
             Toast.makeText(this,"Map",Toast.LENGTH_SHORT).show()
-            val intent:Intent=Intent(this,MapActivity::class.java)
+            val intent=Intent(this,MapActivity::class.java)
             startActivity(intent)
         }
         if (id==R.id.setting_language){
             Toast.makeText(this,"Language",Toast.LENGTH_SHORT).show()
-            val intent:Intent=Intent(this,LanguageActivity::class.java)
+            val intent=Intent(this,LanguageActivity::class.java)
             startActivity(intent)
         }
         if (id==R.id.setting_theme){
             Toast.makeText(this,"Theme",Toast.LENGTH_SHORT).show()
-            val intent:Intent=Intent(this,ThemeActivity::class.java)
+            val intent=Intent(this,ThemeActivity::class.java)
             startActivity(intent)
         }
         return super.onOptionsItemSelected(item)

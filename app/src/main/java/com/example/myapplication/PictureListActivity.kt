@@ -28,6 +28,7 @@ import java.util.*
 const val ExtraPath="com.example.myfirstapp.path"
 const val Extrawidth="com.example.myfirstapp.width"
 const val Extraheight="com.example.myfirstapp.height"
+const val ExtraStationFromPicture="com.example.myapplication.stationame"
 //path declaration
 lateinit var path:String
 //for our image
@@ -100,7 +101,7 @@ class PictureListActivity : AppCompatActivity() {
         //called when image was captured
         if (resultCode == Activity.RESULT_OK) {
             //to get the path
-            path=imageFilePath.toString()
+            path=imageFilePath
             Toast.makeText(this, "Image created successfully", Toast.LENGTH_SHORT).show()
             //path=imageFilePath.toString()
             click_image.setImageBitmap(setScaledBitmap())
@@ -189,7 +190,7 @@ class PictureListActivity : AppCompatActivity() {
     }
     fun OnClickImageList(view: View){
         val imageListIntent = Intent(this, StationImagesActivity::class.java).apply {
-
+            putExtra(ExtraStationFromPicture,stationId)
         }
         startActivity(imageListIntent)
 
