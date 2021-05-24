@@ -14,13 +14,10 @@ import kotlin.math.min
 class FullScreenImageActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val storageDir: File? = this.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         val path=intent.getStringExtra(ExtraPath)
-        val width=intent.getStringExtra(Extrawidth)
-        val height=intent.getStringExtra(Extraheight)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_full_screen_image)
-        Toast.makeText(this, "Displaying last taken image in full screen ", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Displaying last took image in full screen ", Toast.LENGTH_SHORT).show()
 
         val bitmap = BitmapFactory.decodeFile(path?.toUri().toString())
         //fullScreenImageView.setImageURI(path?.toUri())
@@ -30,6 +27,7 @@ class FullScreenImageActivity : AppCompatActivity() {
 
 
     }
+    //for image measurements
     private fun setScaledBitmap(): Bitmap {
 
 

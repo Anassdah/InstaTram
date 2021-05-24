@@ -10,10 +10,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.view.View
+import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
@@ -22,6 +19,7 @@ import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 /**var and const declarations*/
 //intent keys
@@ -47,6 +45,9 @@ class PictureListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_picture_list)
+        val toast = Toast.makeText(this, "Click here to display last took image", Toast.LENGTH_LONG)
+        toast.setGravity(Gravity.CENTER, 0, 0)
+        toast.show()
         val station= intent.getStringExtra(ExtraStation).toString()
         stationId=station
         // to change title bar
@@ -107,7 +108,7 @@ class PictureListActivity : AppCompatActivity() {
             "54" -> this.title = "Sant Roc"
             "55" -> this.title = "Gorg"
         }
-        //button click
+        /**camera button setup*/
 
         camera_button.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -118,8 +119,8 @@ class PictureListActivity : AppCompatActivity() {
                 ) {
                     //permission was not enabled
                     val permission = arrayOf(
-                        android.Manifest.permission.CAMERA,
-                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+                            android.Manifest.permission.CAMERA,
+                            android.Manifest.permission.WRITE_EXTERNAL_STORAGE
                     )
                     //show popup to request permission
                     requestPermissions(permission, PERMISSION_CODE)
@@ -135,9 +136,9 @@ class PictureListActivity : AppCompatActivity() {
     }
 
     override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
+            requestCode: Int,
+            permissions: Array<out String>,
+            grantResults: IntArray
     ) {
         //called after the pop up
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -161,7 +162,6 @@ class PictureListActivity : AppCompatActivity() {
             //to get the path
             path=imageFilePath
             Toast.makeText(this, "Image created successfully", Toast.LENGTH_SHORT).show()
-            //path=imageFilePath.toString()
             click_image.setImageBitmap(setScaledBitmap())
 
 
@@ -177,10 +177,9 @@ class PictureListActivity : AppCompatActivity() {
 
     }
 
-    lateinit var currentPhotoPath: String
-
     @SuppressLint("SimpleDateFormat")
     @Throws(IOException::class)
+    /**Image file creation*/
     private fun createImageFile(): File {
         // Create an image file name
         val timeStamp: String = SimpleDateFormat("yyyy-MM-dd_HH:mm:ss").format(Date())
@@ -195,7 +194,7 @@ class PictureListActivity : AppCompatActivity() {
         return imageFile
 
     }
-
+/**To open camera*/
     fun openCamera() {
         try {
             val imageFile = createImageFile()
@@ -222,6 +221,7 @@ class PictureListActivity : AppCompatActivity() {
         startActivityForResult(cameraIntent, IMAGE_CAPTURE_CODE)
 */
     }
+
 /**For image mesurement in capture*/
     private fun setScaledBitmap():Bitmap{
         width=click_image.width
@@ -238,6 +238,7 @@ class PictureListActivity : AppCompatActivity() {
         return BitmapFactory.decodeFile(imageFilePath, bOptions)
     }
 
+    /**for full image display*/
     fun OnClickImage(view: View) {
         val fullScreenIntent = Intent(this, FullScreenImageActivity::class.java).apply {
             putExtra(ExtraPath, path.toString())
@@ -246,14 +247,18 @@ class PictureListActivity : AppCompatActivity() {
         }
         startActivity(fullScreenIntent)
     }
+    /**For displaying station image list*/
+
     fun OnClickImageList(view: View){
         val imageListIntent = Intent(this, StationImagesActivity::class.java).apply {
-            putExtra(ExtraStationFromPicture,stationId)
+            putExtra(ExtraStationFromPicture, stationId)
         }
         startActivity(imageListIntent)
 
 
     }
+
+    /**For menu*/
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.main_menu, menu)
@@ -262,23 +267,23 @@ class PictureListActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id : Int = item.itemId
         if (id==R.id.menu_home){
-            Toast.makeText(this,"Home", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this,HActivity::class.java)
+            Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, HActivity::class.java)
             startActivity(intent)
         }
         if (id==R.id.menu_map){
-            Toast.makeText(this,"Map", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this,MapActivity::class.java)
+            Toast.makeText(this, "Map", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, MapActivity::class.java)
             startActivity(intent)
         }
         if (id==R.id.setting_language){
-            Toast.makeText(this,"Language", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this,LanguageActivity::class.java)
+            Toast.makeText(this, "Language", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, LanguageActivity::class.java)
             startActivity(intent)
         }
         if (id==R.id.setting_theme){
-            Toast.makeText(this,"Theme", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this,ThemeActivity::class.java)
+            Toast.makeText(this, "Theme", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ThemeActivity::class.java)
             startActivity(intent)
         }
         return super.onOptionsItemSelected(item)

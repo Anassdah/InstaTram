@@ -22,9 +22,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".FullImageActivity"></activity>
-        <activity android:name=".StationImagesActivity"
-            android:parentActivityName=".PictureListActivity"/>
+        <activity android:name=".FullImageActivity" />
+        <activity android:name=".StationImagesActivity" />
         <activity
             android:name=".FullScreenImageActivity"
             android:parentActivityName=".PictureListActivity" />

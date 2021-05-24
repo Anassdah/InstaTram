@@ -18,6 +18,7 @@ import java.io.File
 import java.util.ArrayList
 
 class StationImagesActivity : AppCompatActivity(), OnitemClcikListerner {
+    //variables declaration
     var myimageFile: ArrayList<File>? = null
     var customAdapter: CustomAdapter? = null
     var mList: MutableList<String>? = null
@@ -29,7 +30,7 @@ class StationImagesActivity : AppCompatActivity(), OnitemClcikListerner {
         /**to retrieve id*/
         val station= intent.getStringExtra(ExtraStationFromPicture).toString()
         stationId=station
-        //to change title bar
+        /**To change title bar */
         when (station) {
             "0" -> this.title = "Fontsanta Fatjo"
             "1" -> this.title = "Bon Viatge"
@@ -108,6 +109,7 @@ class StationImagesActivity : AppCompatActivity(), OnitemClcikListerner {
 
     //get access to location permission
     private val REQUEST_CODE_ASK_PERMISSIONS = 123
+    /**For request permission result*/
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         when (requestCode) {
             REQUEST_CODE_ASK_PERMISSIONS -> if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -136,7 +138,7 @@ class StationImagesActivity : AppCompatActivity(), OnitemClcikListerner {
         }
         return imageList
     }
-
+/**For displaying the image list*/
     private fun display() {
         myimageFile = findImage(Environment.getExternalStorageDirectory())
         for (j in myimageFile!!.indices) {
@@ -146,7 +148,7 @@ class StationImagesActivity : AppCompatActivity(), OnitemClcikListerner {
             recyclerView!!.layoutManager = GridLayoutManager(this, 2)
         }
     }
-
+/**For full screen image on click*/
     override fun onClick(position: Int) {
         Toast.makeText(this, "Postion: $position", Toast.LENGTH_SHORT).show()
         val intent = Intent(this, FullImageActivity::class.java)
@@ -155,6 +157,7 @@ class StationImagesActivity : AppCompatActivity(), OnitemClcikListerner {
         intent.putExtra("imageList", myimageFile)
         startActivity(intent)
     }
+    /**For menu  */
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inf : MenuInflater = menuInflater
         inf.inflate(R.menu.main_menu,menu)
