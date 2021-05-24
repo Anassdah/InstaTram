@@ -29,72 +29,71 @@ class StationImagesActivity : AppCompatActivity(), OnitemClcikListerner {
         /**to retrieve id*/
         val station= intent.getStringExtra(ExtraStationFromPicture).toString()
         stationId=station
+        //to change title bar
         when (station) {
-            "0" -> this.setTitle("Fontsanta Fatjo")
-            "1" -> this.setTitle("Bon Viatge")
-            "2" -> this.setTitle("Les Aigües")
-            "3" -> this.setTitle("Cornellà Centre")
-            "4" -> this.setTitle("Ignasi Iglésias")
-            "5" -> this.setTitle("La Fontsanta")
-            "6" -> this.setTitle("Centre Miquel Marti i Pol")
-            "7" -> this.setTitle("El Pedró")
-            "8" -> this.setTitle("Llevant-Les Planes")
-            "9" -> this.setTitle("Montesa")
-            "10" -> this.setTitle("Hospital Sant Joan Despí | TV3")
-            "11" -> this.setTitle("La Sardana")
-            "12" -> this.setTitle("Pont d'Esplugues")
-            "13" -> this.setTitle("Can Clota")
-            "14" -> this.setTitle("Sant Feliu | Consell Comarcal")
-            "15" -> this.setTitle("Torreblanca")
-            "16" -> this.setTitle("Walden")
-            "17" -> this.setTitle("Rambla de Sant Just")
-            "18" -> this.setTitle("Can n'Oliveres")
-            "19" -> this.setTitle("Can Rigal")
-            "20" -> this.setTitle("Ernest Lluch")
-            "21" -> this.setTitle("Avinguda de Xile")
-            "22" -> this.setTitle("Zona Universitària")
-            "23" -> this.setTitle("Palau Reial")
-            "24" -> this.setTitle("Pius XII")
-            "25" -> this.setTitle("Maria Cristina")
-            "26" -> this.setTitle("Numància")
-            "27" -> this.setTitle("L'Illa")
-            "28" -> this.setTitle("Francesc Macià")
-            "29" -> this.setTitle("Marina")
-            "30" -> this.setTitle("Auditori | Teatre Nacional")
-            "31" -> this.setTitle("Ciutadella | Vila Olímpica")
-            "32" -> this.setTitle("Wellington")
-            "33" -> this.setTitle("Glòries")
-            "34" -> this.setTitle("La Farinera")
-            "35" -> this.setTitle("Ca l'Aranyó")
-            "36" -> this.setTitle("Can Jaumandreu")
-            "37" -> this.setTitle("Pere IV")
-            "38" -> this.setTitle("Fluvià")
-            "39" -> this.setTitle("Espronceda")
-            "40" -> this.setTitle("Selva de Mar")
-            "41" -> this.setTitle("Sant Martí de Provençals")
-            "42" -> this.setTitle("El Maresme")
-            "43" -> this.setTitle("Fòrum")
-            "44" -> this.setTitle("Alfons el Magnànim")
-            "45" -> this.setTitle("Can Llima")
-            "46" -> this.setTitle("La Mina")
-            "47" -> this.setTitle("Besòs")
-            "48" -> this.setTitle("Parc del Besòs")
-            "49" -> this.setTitle("Central Tèrmica del Besòs")
-            "50" -> this.setTitle("La Catalana")
-            "51" -> this.setTitle("Sant Joan Baptista")
-            "52" -> this.setTitle("Estació de Sant Adrià")
-            "53" -> this.setTitle("Encants de Sant Adrià")
-            "54" -> this.setTitle("Sant Roc")
-            "55" -> this.setTitle("Gorg")
-
+            "0" -> this.title = "Fontsanta Fatjo"
+            "1" -> this.title = "Bon Viatge"
+            "2" -> this.title = "Les Aigües"
+            "3" -> this.title = "Cornellà Centre"
+            "4" -> this.title = "Ignasi Iglésias"
+            "5" -> this.title = "La Fontsanta"
+            "6" -> this.title = "Centre Miquel Marti i Pol"
+            "7" -> this.title = "El Pedró"
+            "8" -> this.title = "Llevant-Les Planes"
+            "9" -> this.title = "Montesa"
+            "10" -> this.title = "Hospital Sant Joan Despí | TV3"
+            "11" -> this.title = "La Sardana"
+            "12" -> this.title = "Pont d'Esplugues"
+            "13" -> this.title = "Can Clota"
+            "14" -> this.title = "Sant Feliu | Consell Comarcal"
+            "15" -> this.title = "Torreblanca"
+            "16" -> this.title = "Walden"
+            "17" -> this.title = "Rambla de Sant Just"
+            "18" -> this.title = "Can n'Oliveres"
+            "19" -> this.title = "Can Rigal"
+            "20" -> this.title = "Ernest Lluch"
+            "21" -> this.title = "Avinguda de Xile"
+            "22" -> this.title = "Zona Universitària"
+            "23" -> this.title = "Palau Reial"
+            "24" -> this.title = "Pius XII"
+            "25" -> this.title = "Maria Cristina"
+            "27" -> this.title = "L'Illa"
+            "28" -> this.title = "Francesc Macià"
+            "29" -> this.title = "Marina"
+            "30" -> this.title = "Auditori | Teatre Nacional"
+            "31" -> this.title = "Ciutadella | Vila Olímpica"
+            "32" -> this.title = "Wellington"
+            "33" -> this.title = "Glòries"
+            "34" -> this.title = "La Farinera"
+            "35" -> this.title = "Ca l'Aranyó"
+            "36" -> this.title = "Can Jaumandreu"
+            "37" -> this.title = "Pere IV"
+            "38" -> this.title = "Fluvià"
+            "39" -> this.title = "Espronceda"
+            "40" -> this.title = "Selva de Mar"
+            "41" -> this.title = "Sant Martí de Provençals"
+            "42" -> this.title = "El Maresme"
+            "43" -> this.title = "Fòrum"
+            "44" -> this.title = "Alfons el Magnànim"
+            "45" -> this.title = "Can Llima"
+            "46" -> this.title = "La Mina"
+            "47" -> this.title = "Besòs"
+            "48" -> this.title = "Parc del Besòs"
+            "49" -> this.title = "Central Tèrmica del Besòs"
+            "50" -> this.title = "La Catalana"
+            "51" -> this.title = "Sant Joan Baptista"
+            "52" -> this.title = "Estació de Sant Adrià"
+            "53" -> this.title = "Encants de Sant Adrià"
+            "54" -> this.title = "Sant Roc"
+            "55" -> this.title = "Gorg"
         }
 
         recyclerView = findViewById(R.id.recyclerViewId)
-        CheckUserPermsions()
+        CheckUserPermissions()
         mList = ArrayList()
     }
-
-    fun CheckUserPermsions() {
+// to check permission
+    fun CheckUserPermissions() {
         if (Build.VERSION.SDK_INT >= 23) {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=
                 PackageManager.PERMISSION_GRANTED) {
@@ -107,7 +106,7 @@ class StationImagesActivity : AppCompatActivity(), OnitemClcikListerner {
         display() // init the contact list
     }
 
-    //get acces to location permsion
+    //get access to location permission
     private val REQUEST_CODE_ASK_PERMISSIONS = 123
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         when (requestCode) {
