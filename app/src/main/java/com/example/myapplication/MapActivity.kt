@@ -87,11 +87,9 @@ class MapActivity : FragmentActivity (), OnMapReadyCallback, GoogleMap.OnMarkerC
 
     }
     override fun onMapReady(p0: GoogleMap) {
-
-        val aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:LatLng = LatLng(41.3921819382415, 2.1429899578455);
-        a = p0?.addMarker( MarkerOptions().position(aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa).title("Francesc Macià"))
-        val zoomLevel:Float = 11.0f
-        p0?.moveCamera(CameraUpdateFactory.newLatLngZoom(aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, zoomLevel));
+        val azzzzz:LatLng = LatLng(41.3602701633887, 2.06231782329774);
+        a = p0?.addMarker( MarkerOptions().position(azzzzz).title("Fontsanta i Fatjó"))
+        p0?.moveCamera(CameraUpdateFactory.newLatLng(azzzzz))
         a.tag = 0
         val azzzzzz:LatLng = LatLng(41.3646427714853, 2.05883027285289);
         a = p0?.addMarker( MarkerOptions().position(azzzzzz).title("Bon Viatge"))
@@ -112,6 +110,10 @@ class MapActivity : FragmentActivity (), OnMapReadyCallback, GoogleMap.OnMarkerC
         val azzzzzzzzzzz:LatLng = LatLng(41.3679007086999, 2.063082294656);
         a = p0?.addMarker( MarkerOptions().position(azzzzzzzzzzz).title("La Fontsanta"))
         p0?.moveCamera(CameraUpdateFactory.newLatLng(azzzzzzzzzzz))
+        a.tag = 0
+        val hahaha:LatLng = LatLng(41.3687284566583, 2.07132883760428);
+        a = p0?.addMarker( MarkerOptions().position(hahaha).title("Centre Miquel Martí i Pol"))
+        p0?.moveCamera(CameraUpdateFactory.newLatLng(hahaha))
         a.tag = 0
         val ha:LatLng = LatLng(41.3654342916373, 2.07676925416326);
         a = p0?.addMarker( MarkerOptions().position(ha).title("El Pedró"))
@@ -197,9 +199,10 @@ class MapActivity : FragmentActivity (), OnMapReadyCallback, GoogleMap.OnMarkerC
         a = p0?.addMarker( MarkerOptions().position(aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa).title("L'Illa"))
         p0?.moveCamera(CameraUpdateFactory.newLatLng(aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa))
         a.tag = 0
-        val azzzzz:LatLng = LatLng(41.3602701633887, 2.06231782329774);
-        a = p0?.addMarker( MarkerOptions().position(azzzzz).title("Fontsanta i Fatjó"))
-        p0?.moveCamera(CameraUpdateFactory.newLatLng(azzzzz))
+        val aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:LatLng = LatLng(41.3921819382415, 2.1429899578455);
+        a = p0?.addMarker( MarkerOptions().position(aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa).title("Francesc Macià"))
+        val zoomLevel:Float = 11.0f
+        p0?.moveCamera(CameraUpdateFactory.newLatLngZoom(aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, zoomLevel));
         a.tag = 0
         val aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:LatLng = LatLng(41.3939821425228, 2.18687783955788);
         a = p0?.addMarker( MarkerOptions().position(aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa).title("Marina"))
