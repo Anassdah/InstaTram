@@ -45,7 +45,7 @@ class PictureListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_picture_list)
-        val toast = Toast.makeText(this, "Click here to display last took image", Toast.LENGTH_LONG)
+        val toast = Toast.makeText(this, "Click here to display last took image", Toast.LENGTH_SHORT)
         toast.setGravity(Gravity.CENTER, 0, 0)
         toast.show()
         val station= intent.getStringExtra(ExtraStation).toString()
