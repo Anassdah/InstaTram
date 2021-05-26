@@ -16,16 +16,18 @@ class LanguageActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
     private var isTouched: Boolean = false
     private val TAG = "LanguageActivity"
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_language)
         languageList = arrayListOf(
             Language(R.drawable.us, "English", "en"),
             Language(R.drawable.es, "Spanish", "es")
-
         )
         spinner.adapter = SpinnerAdapter(this, languageList)
-        val currentLanguage = Locale.getDefault().getLanguage()
+        var currentLanguage = Locale.getDefault().getLanguage()
+
         Log.v(TAG, "current language : $currentLanguage")
 
         val index: Int = languageList.indexOfFirst { l -> l.code == currentLanguage }
@@ -62,7 +64,7 @@ class LanguageActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
         config.locale = locale
         resources.updateConfiguration(config, resources.displayMetrics)
 
-        recreate()
+        this@LanguageActivity.recreate()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

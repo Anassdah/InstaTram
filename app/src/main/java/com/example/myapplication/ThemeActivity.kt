@@ -28,7 +28,11 @@ class ThemeActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.button2);
         var isDarkMode: Boolean? = isDarkTheme(this);
         Log.v(TAG, "isDarkmode=$isDarkMode ")
-
+        if (isDarkMode == false) {
+            button.setText(R.string.enable_dark_mode)
+        } else {
+            button.setText(R.string.disable_dark_mode)
+        }
         button.setOnClickListener(View.OnClickListener { view: View? ->
             if (isDarkMode == false) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
