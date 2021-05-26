@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">InstaTram(es)</string>
+
+    <string name="Map">mapa</string>
+    <string name="Home">casa</string>
+    <string name="title_activity_pictures_list">
+Actividad de lista de imágenes</string>
+    <!--settings strings-->
+    <string name="Setting">Configuración</string>
+    <string name="Language">Idioma</string>
+    <string name="Theme">Tema</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Primer fragmento</string>
+    <string name="second_fragment_label">Segundo fragmento
+</string>
+    <string name="next">Próximo</string>
+    <string name="previous">Previo</string>
+
+    <string name="hello_first_fragment">Hola primer fragmento</string>
+    <string name="hello_second_fragment">Hola segundo fragmento. Arg: %1$s</string>
+    <string name="camera">cámara</string>
+    <string name="image_list">Lista de imágenes</string>
+    <string name="last_taken_image">última_imagen_tomada</string>
+    <string name="start_the_app">Inicie LA APLICACIÓN</string>
+    <string name="welcome">BIENVENIDO \ n A \ n BARCELONA</string>
+    <string name="full_screen_image">imagen de pantalla completa</string>
+    <string name="title_language">Spanish</string>
+    <string name="enable_dark_mode" >Activar el modo oscuro</string>
+    <string name="disable_dark_mode" >Desactivar el modo oscuro</string>
+</resources>

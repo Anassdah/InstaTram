@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">InstaTram</string>
 
@@ -23,4 +24,8 @@
     <string name="start_the_app"> Start THE APP </string>
     <string name="welcome">WELCOME \n TO \n BARCELONA</string>
     <string name="full_screen_image">full screen image</string>
+    <string name="title_language" >English</string>
+    <string name="enable_dark_mode" >Enable darkmode</string>
+    <string name="disable_dark_mode" >Disable darkmode</string>
+
 </resources>
