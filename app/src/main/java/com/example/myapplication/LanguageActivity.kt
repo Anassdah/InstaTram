@@ -26,6 +26,8 @@ class LanguageActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
         )
         spinner.adapter = SpinnerAdapter(this, languageList)
         val currentLanguage = Locale.getDefault().getLanguage()
+        Log.v(TAG, "current language : $currentLanguage")
+
         val index: Int = languageList.indexOfFirst { l -> l.code == currentLanguage }
         spinner.setSelection(index)
 

@@ -46,7 +46,7 @@ class HActivity : AppCompatActivity() {
                     tram[i]= tramlist!![i]!!.name
 
                 }
-                var tadapter=ArrayAdapter<String>(applicationContext,android.R.layout.simple_dropdown_item_1line,tram)
+                var tadapter=ArrayAdapter<String>(this@HActivity,android.R.layout.simple_dropdown_item_1line,tram)
                 listView.adapter=tadapter
             }
 
